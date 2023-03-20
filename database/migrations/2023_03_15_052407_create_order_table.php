@@ -17,10 +17,10 @@ class CreateOrderTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->smallInteger('audit_result');
-            $table->integer('apply_amount');
+            $table->decimal('apply_amount');
             $table->integer('apply_period');
-            $table->integer('approved_amount');
-            $table->integer('withdraw_amount');
+            $table->decimal('approved_amount');
+            $table->decimal('withdraw_amount');
             $table->smallInteger('withdraw_status');
             $table->smallInteger('withdraw_button');
             $table->dateTime('withdraw_time');
@@ -29,6 +29,9 @@ class CreateOrderTable extends Migration
             $table->text('app_remarks');
             $table->smallInteger('status');
             $table->integer('SMS');
+            $table->decimal('insurance_amount');
+            $table->integer('regulatory_ratio');
+            $table->text('process_result');
             $table->timestamps();
         });
     }

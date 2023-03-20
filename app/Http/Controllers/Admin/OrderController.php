@@ -28,7 +28,7 @@ class OrderController extends Controller {
         if($request->withdraw_button <> -1){
             $orderModel = $orderModel->where('orders.withdraw_button','=', $request->withdraw_button);
         }
-        if($request->status <> -1){
+        if($request->status <> ''){
             $orderModel = $orderModel->where('orders.status','=', $request->status);
         }
         $orderList = $orderModel->select('user.*', 'channel.name', 'orders.id', 'orders.*')->get()->toArray();
@@ -41,6 +41,25 @@ class OrderController extends Controller {
         $data['withdraw_amount'] = $request->withdraw_amount;
         $data['contract'] = $request->contract;
         $data['status'] = $request->status;
+
+        $userModel = Order::where('id', $request->id)->update($data);
+        return response()->json(['success'=>true, 'result' => $userModel]);
+    }
+
+    public function updateOrderInsurance(Request $request) {
+        $data = [];
+        $data['insurance_amount'] = $request->insurance_amount;
+        $data['regulatory_ratio'] = $request->regulatory_ratio;
+
+        $userModel = Order::where('id', $request->id)->update($data);
+        return response()->json(['success'=>true, 'result' => $userModel]);
+    }
+
+    public function updateAppStatus(Request $request) {
+        $data = [];
+        $data['withdraw_button'] = $request->withdraw_button;
+        $data['app_status'] = $request->app_status;
+        $data['app_remarks'] = $request->app_remarks;
 
         $userModel = Order::where('id', $request->id)->update($data);
         return response()->json(['success'=>true, 'result' => $userModel]);

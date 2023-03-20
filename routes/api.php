@@ -50,6 +50,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CORS'], function ($router) {
     Route::put('/updateChannel', [ChannelController::class, 'updateChannel'])->name('admin.channel.updateChannel');
     Route::get('/orderList', [OrderController::class, 'getOrderList'])->name('admin.channel.getOrderList');
     Route::put('/updateOrder', [OrderController::class, 'updateOrder'])->name('admin.channel.updateOrder');
+    Route::put('/updateAppStatus', [OrderController::class, 'updateAppStatus'])->name('admin.channel.updateAppStatus');
+    Route::put('/updateOrderInsurance', [OrderController::class, 'updateOrderInsurance'])->name('admin.channel.updateOrderInsurance');
     Route::get('/feedbackList', [FeedbackController::class, 'getFeedbackList'])->name('admin.feedback.getFeedbackList');
     Route::put('/updateFeedbackStatus', [FeedbackController::class, 'updateFeedbackStatus'])->name('admin.feedback.updateFeedbackStatus');
     Route::delete('/deleteFeedback', [FeedbackController::class, 'deleteFeedback'])->name('admin.feedback.deleteFeedback');
