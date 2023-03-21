@@ -3,13 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-//use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\SportController;
-use App\Http\Controllers\ResultController;
-use App\Http\Controllers\Web\DepositController;
-use App\Http\Controllers\Web\TransferController;
-use App\Http\Controllers\Web\WithdrawController;
-use App\Http\Controllers\Web\AccountController;
 /* Admin controllers. */
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminUserController;

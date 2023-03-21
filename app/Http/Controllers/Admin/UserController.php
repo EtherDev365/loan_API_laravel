@@ -25,7 +25,7 @@ class UserController extends Controller {
             $userModel = $userModel->where('user.channel_id','=', $request->channel_id);
         }
         $userList = $userModel->select('user.*', 'channel.name')->get()->toArray();
-        return response()->json(['success'=>true, 'userList' => $userList]);
+        return response()->json(['success'=>true, 'userList' => $userModel->paginate($request->results)]);
     }
 
     public function getUserById(Request $request) {
