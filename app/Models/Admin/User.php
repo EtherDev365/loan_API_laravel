@@ -19,6 +19,28 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'phone_number',
+        'id_card_name',
+        'id_card_number',
+        'gender',
+        'current_address',
+        'channel_id',
+        'device',
+        'login_status',
+        'bank_card_number',
+        'bank_account',
+        'family_relationship',
+        'family_name',
+        'family_phone_number',
+        'family_relationship',
+        'friend_name',
+        'friend_phone_number',
+        'work_experience',
+        'work_income',
+        'work_address',
+        'loan_way',
+        'password',
+        'status',
     ];
 
     /**

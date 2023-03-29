@@ -34,7 +34,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CORS'], function ($router) {
     Route::post('/login', [AuthController::class, 'login'])->name('admin.auth.login');
     Route::post('/register', [AuthController::class, 'register'])->name('admin.auth.register');
     Route::get('/userList', [UserController::class, 'getUserList'])->name('admin.user.getUserList');
+    Route::post('/registerUser', [UserController::class, 'registerUser'])->name('admin.user.registerUser');
     Route::get('/getUserById', [UserController::class, 'getUserById'])->name('admin.user.getUserById');
+    Route::put('/updateUser', [UserController::class, 'updateUser'])->name('admin.user.updateUser');
     Route::put('/updateUserLoginStatus', [UserController::class, 'updateUserLoginStatus'])->name('admin.user.updateUserLoginStatus');
     Route::put('/updateUserMainInformation', [UserController::class, 'updateUserMainInformation'])->name('admin.user.updateUserMainInformation');
     Route::delete('/deleteUser', [UserController::class, 'deleteUser'])->name('admin.user.deleteUser');
@@ -42,6 +44,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'CORS'], function ($router) {
     Route::post('/addChannel', [ChannelController::class, 'addChannel'])->name('admin.channel.addChannel');
     Route::put('/updateChannel', [ChannelController::class, 'updateChannel'])->name('admin.channel.updateChannel');
     Route::get('/orderList', [OrderController::class, 'getOrderList'])->name('admin.channel.getOrderList');
+    Route::post('/makeOrder', [OrderController::class, 'makeOrder'])->name('admin.channel.makeOrder');
     Route::put('/updateOrder', [OrderController::class, 'updateOrder'])->name('admin.channel.updateOrder');
     Route::put('/updateAppStatus', [OrderController::class, 'updateAppStatus'])->name('admin.channel.updateAppStatus');
     Route::put('/updateOrderInsurance', [OrderController::class, 'updateOrderInsurance'])->name('admin.channel.updateOrderInsurance');

@@ -35,6 +35,19 @@ class OrderController extends Controller {
         return response()->json(['success'=>true, 'orderList' => $orderModel->paginate($request->results)]);
     }
 
+    public function makeOrder (Request $request) {
+
+        $data = new Order;
+        $data['user_id'] = $request->user_id;
+        $data['apply_amount'] = $request->apply_amount;
+        $data['apply_period'] = $request->apply_period;
+        $user = new Order;
+        if ($data->save()){
+            $result = Order::where('id', $data->id)->first();
+            return response()->json(['success'=>true, 'result' => $result]);
+        }
+        return response()->json(['success'=>false]);
+    }
     public function updateOrder(Request $request) {
         $data = [];
         $data['withdraw_button'] = $request->withdraw_button;

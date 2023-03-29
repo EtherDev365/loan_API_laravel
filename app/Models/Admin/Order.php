@@ -18,6 +18,9 @@ class Order extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        "user_id",
+        "apply_amount",
+        "apply_period"
     ];
 
     /**

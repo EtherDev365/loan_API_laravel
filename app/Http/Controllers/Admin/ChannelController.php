@@ -20,7 +20,6 @@ class ChannelController extends Controller {
         if ($channel)
             return response()->json(['success'=>false, 'message'=>'Channel ID already exists.']);
 
-
         $data = [];
         $data['channel_id'] = $request->channel_id;
         $data['name'] = $request->name;
