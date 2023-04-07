@@ -32,7 +32,7 @@ class OrderController extends Controller {
             $orderModel = $orderModel->where('orders.status','=', $request->status);
         }
         $orderList = $orderModel->select('user.*', 'channel.name', 'orders.id', 'orders.*')->get()->toArray();
-        return response()->json(['success'=>true, 'orderList' => $orderModel->paginate($request->results)]);
+        return response()->json(['success'=>true, 'orderList' => $orderModel->orderBy('orders.created_at', 'desc')->paginate($request->results)]);
     }
 
     public function makeOrder (Request $request) {

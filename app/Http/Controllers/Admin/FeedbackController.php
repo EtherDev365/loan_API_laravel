@@ -15,7 +15,7 @@ class FeedbackController extends Controller {
     public function getFeedbackList(Request $request) {
         $feedbackModel = DB::table('feedback');
         $feedbackList = $feedbackModel->get()->toArray();
-        return response()->json(['success'=>true, 'feedbackList' => $feedbackModel->paginate($request->results)]);
+        return response()->json(['success'=>true, 'feedbackList' => $feedbackModel->orderBy('created_at', 'desc')->paginate($request->results)]);
     }
 
     public function updateFeedbackStatus(Request $request) {

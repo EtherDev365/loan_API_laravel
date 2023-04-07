@@ -100,7 +100,7 @@ class AdminUserController extends Controller {
             $userModel = $userModel->where('name','Like', '%' . $request->name . '%');
         }
         $userList = $userModel->get()->toArray();
-        return response()->json(['success'=>true,  'adminUserList' => $userModel->paginate($request->results)]);
+        return response()->json(['success'=>true,  'adminUserList' => $userModel->orderBy('created_at', 'desc')->paginate($request->results)]);
     }
 
     public function updateAdminUser(Request $request) {
